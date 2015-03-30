@@ -37,6 +37,10 @@ public class Collections {
 			System.out.printf("%s ", list.get(i));
 		}
 		
+		removeStuff(list, 2, 3);
+		printMe(list);
+		reverseMe(list);
+		
 	}
 	
 	public static void editList(Collection<String> list1, Collection<String> list2){
@@ -53,6 +57,30 @@ public class Collections {
 				// remove it from the list
 				iterate.remove();
 			}
+		}
+	}
+	
+	public static void printMe(List<String> list){
+		for(String animal : list){
+			System.out.printf("%s ", animal);
+		}
+		System.out.println();
+	}
+	
+	public static void removeStuff(List<String> list, int from, int to){
+		// index from and to of array to be deleted
+		list.subList(from, to).clear();
+	}
+	
+	public static void reverseMe (List<String> list){
+		
+		// making the list ready to be iterated
+		// list.listIterator(list.size()) is setting the start from what index to start
+		// the iteration, this time the very last index because we are about to reverse it
+		ListIterator<String> partyAnimals = list.listIterator(list.size());
+		
+		while(partyAnimals.hasPrevious()){
+			System.out.printf("%s ", partyAnimals.previous());
 		}
 	}
 
